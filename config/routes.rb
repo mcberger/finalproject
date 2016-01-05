@@ -1,37 +1,23 @@
 Rails.application.routes.draw do
-  get 'events/new'
+  
+  devise_for :users, controllers: {
+        sessions: 'users/sessions',
+        registrations: 'users/registrations'
+      }
+ 
+  get "users/add_new_users" => "users#add_new_users", as: :add_new_users
+  post "users/create_new_users" => "users#create_new_users", as: :create_new_users
+  resources :users
 
-  get 'events/create'
+  resources :posts do
+    resources :comments
+  end
 
-  get 'events/index'
-
-  get 'events/show'
-
-  get 'events/edit'
-
-  get 'events/update'
-
-  get 'events/destroy'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/edit'
-
-  get 'users/update'
-
-  get 'users/index'
-
-  get 'users/show'
-
-  get 'users/destroy'
+  resources :events
 
   get '/' => 'home#index', as: :home
 
-  devise_for :users, controllers: {
-        sessions: 'users/sessions'
-      }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

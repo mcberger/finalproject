@@ -1,16 +1,22 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
-# before_filter :configure_account_update_params, only: [:update]
+  before_filter :configure_account_update_params, only: [:update]
 
+  def configure_account_update_params
+    devise_parameter_sanitizer.for(:account_update).push(:password_confirmation, :current_password, :email, :fname, :lname, :function)
+  end
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create 
+    super do |user|
+      UserMailer.welcome_email(user).deliver_later
+      user.update admin: true
+    end
+  end
 
   # GET /resource/edit
   # def edit
