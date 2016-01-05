@@ -1,13 +1,19 @@
 <h1> All users </h1>
-<% @users.each do |user| %>
-  <% if user.admin == true %>
-    <%= user_link user %> (admin) <br>
-    <% else %>
-      <%= user_link user %> <br>
-      <% end %>
+
+<ul>
+	<% @users.each do |user| %>
+		<% if user.admin == true %>
+			<li> <%= you_user user %> <%= user_delete user  %> (admin)</li> <br>
+		<% else %>
+			<li> <%= you_user user %> <%= user_delete user %> </li><br>
+		<% end %>
+	<% end %>
+</ul>
+
+<br>
+
+<% if current_user.admin? %>
+	<%= link_to "Add a new employee", add_new_users_path, class: "btn btn-default" %>
+<% else %>
 <% end %>
-
-<br><br><br>
-
-<%= link_to "Add a new employee", add_new_users_path, class: "btn btn-default" %>
 

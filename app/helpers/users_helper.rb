@@ -1,11 +1,19 @@
 module UsersHelper
 
-	def user_link user
-		link_text = if user == current_user
+	def you_user user
+		if user == current_user
 			'you'
 		else
 			"#{user.fname} #{user.lname}"
 		end
-		link_to link_text, user_path(user)
+	end
+
+
+	def user_delete user
+		if current_user.admin?
+			link_to 'delete', user_path(user), method: :delete
+		else
+		end
 	end
 end
+

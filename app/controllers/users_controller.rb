@@ -20,6 +20,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice] = "User deleted successfully."
+    else
+      flash[:alert] = "There was a problem deleting the user."
+    end
+    redirect_to users_path
   end
 
   def add_new_users
