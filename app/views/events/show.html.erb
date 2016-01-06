@@ -1,2 +1,9 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h1> <%= @event.name %></h1>
+Taking place on the: <%= @event.start_time.strftime("%m/%d/%Y at %I:%M") %>
+
+<br><br>
+<% if current_user.admin? %>
+	<%= link_to 'Edit event', edit_event_path, class: "btn btn-default" %>
+	<%= link_to 'Delete event', event_path(@event), method: :delete, class: "btn btn-default" %>
+<% else %>
+<% end %>

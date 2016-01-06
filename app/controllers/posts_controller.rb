@@ -44,7 +44,7 @@ class PostsController < ApplicationController
       flash[:notice] = "The post was deleted successfully."
       redirect_to posts_path
     else
-      flash[:alert] = "There was a problem deleting your post."
+      flash[:alert] = "There was a problem deleting the post."
       redirect_to post_path @post
     end
   end

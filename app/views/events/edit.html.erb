@@ -1,2 +1,18 @@
-<h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+<h1> Edit Event </h1>
+
+
+<%= form_for @event, method: :put do |f| %> 
+<div class="field">
+	<%= f.label :name %><br />
+	<%= f.text_field :name, autofocus: true %>
+</div>
+
+<div class="field">
+	<%= f.label :start_time, 'When' %><br />
+	<%= f.datetime_select :start_time %><br><br>
+</div>
+
+<div class="actions">
+	<%= f.submit :Edit %>
+</div>
+<% end %>

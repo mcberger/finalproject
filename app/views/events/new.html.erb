@@ -1,2 +1,18 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<h1> New Event </h1>
+Fill in the details for the event you would like to create.
+
+<%= form_for @event do |f| %> 
+<div class="field">
+	<%= f.label :name %><br />
+	<%= f.text_field :name, autofocus: true %>
+</div>
+
+<div class="field">
+	<%= f.label :start_time, 'When' %><br />
+	<%= f.datetime_select :start_time %><br><br>
+</div>
+
+<div class="actions">
+	<%= f.submit "Create event!" %>
+</div>
+<% end %>
