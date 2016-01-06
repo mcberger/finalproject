@@ -17,3 +17,12 @@
 .alert {
 	margin-top: 70px;
 }
+
+.post-body {
+	width: 431px;
+	height: 118px;
+}
+
+.comment-text {
+	width: 798px;
+}

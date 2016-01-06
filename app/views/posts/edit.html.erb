@@ -1,2 +1,9 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<%= form_for @post, method: :put do |f| %>
+  <%= f.label :title, 'Question:' %> <br>
+  <%= f.text_field :title, :maxlength => 75, :size => 60 %>
+  <br><br>
+  <%= f.label :body, 'Body:' %> <br>
+  <%= f.text_area :body, :maxlength => 150, :class => "post-body" %>
+  <br><br>
+  <%= f.submit :Edit  %>
+<% end %>

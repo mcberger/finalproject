@@ -1,2 +1,12 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1> All questions </h1>
+
+<%= link_to "Ask a question", new_post_path, class: "btn btn-default" %>
+
+<ul>
+	<% @posts.each do |post| %>
+		<li class="list-group-item"> 
+			<span class="badge"> <%= post.comments.length %></span>
+			<%= link_to post.title, post_path(post) %>
+		</li>
+	<% end %>
+</ul>

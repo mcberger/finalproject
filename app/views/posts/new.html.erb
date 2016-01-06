@@ -1,2 +1,12 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<%= form_for @post do |f| %>
+  <%= f.label :title, 'Question:' %> <br>
+ <%= f.text_field :title, :maxlength => 75, :size => 60%>
+
+  <br><br>
+  <%= f.label :body, 'Body:' %> <br>
+  <%= f.text_area :body, :maxlength => 150, :class => "post-body" %>
+  <br><br>
+  IMPORTANT: you must be logged in to be able to post.
+  <br><br>
+  <%= f.submit :'Ask!'  %>
+<% end %>
