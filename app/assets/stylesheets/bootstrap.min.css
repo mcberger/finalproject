@@ -8,3 +8,12 @@
 	width: 800px;
 	margin-bottom: 50px;
  }
+
+#yield-container {
+	margin: 100px auto;
+	width: 800px;
+}
+
+.alert {
+	margin-top: 70px;
+}

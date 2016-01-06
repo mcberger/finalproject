@@ -40,14 +40,12 @@ class UsersController < ApplicationController
     @user.admin = false
     @user.password = "12345678"
 
-    flash[:notice] = ""
-    flash[:alert]=""
     if @user.save
       UserMailer.welcome_email_alt(@user).deliver_later
-      flash[:notice] += "User #{@user.email} created successfully."
+      flash[:notice] = "User #{@user.email} created successfully."
       redirect_to users_path
     else
-      flash.now[:alert] += "Failed to create user #{@user.email}."
+      flash.now[:alert] = "Failed to create user #{@user.email}."
       render "add_new_users"
     end
   end
