@@ -1,0 +1,10 @@
+<%= week_calendar events: @availabilities do |date, availabilities| %>
+  <%= date.day %>
+
+  <% availabilities.each do |availability| %>
+  	<div>
+  		<%= availability.user.fname %> (<%= availability.day ? 'Day' : 'Night' %>)
+  	</div>
+  <% end %>
+
+<% end %>

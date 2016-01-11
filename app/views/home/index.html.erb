@@ -1,6 +1,28 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if current_user %>
+	<h1 class="establishment-title"><%= current_user.establishment %></h1>
+	<div class="row">
+		<div class="col-md-12">
+			<%= month_calendar events: @events do |date, events| %>
+				<%= date.day %>
+				<span class="week-number pull-right" ><%= date.strftime("%W").to_i  if date.sunday? %></span>
 
-<%= month_calendar do |date| %>
-  <%= date %>
+				<% events.each do |event| %>
+					<div>
+						<%= link_to event.name, event_path(event.id) %>
+					</div>
+				<% end %>
+
+			<% end %>
+		</div>
+	</div>
+<% else %>
+<body class="home-bg">
+	<h1 class="home-title animated rubberBand"> Rooster </h1>
+	</body>
 <% end %>
+
+
+
+
+
+

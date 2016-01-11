@@ -7,5 +7,6 @@ class User < ActiveRecord::Base
   belongs_to :calendar
   has_many :posts
   has_many :comments
+  has_many :availabilities
 
 end

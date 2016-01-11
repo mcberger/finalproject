@@ -13,5 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap.min
+//=# require bootstrap.min.js
 //= require_tree .
+
+
+$(document).ready(function() {
+	$(".alert").click(function(){
+		$(".alert").addClass('animated bounceOutUp');
+		$(".alert").slideUp(5000);
+	});
+});

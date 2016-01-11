@@ -1,12 +1,21 @@
-<h1> All questions </h1>
+<body class="content-wrapper">
+<h1 class="post-title"> All questions </h1>
 
-<%= link_to "Ask a question", new_post_path, class: "btn btn-default" %>
+<div class="row">
+	<div class="col-md-9">
+		<ul>
+			<% @posts.each do |post| %>
+				<li class="list-group-item"> 
+					<span class="badge"> <%= post.comments.length %></span>
+					<%= link_to post.title, post_path(post) %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
 
-<ul>
-	<% @posts.each do |post| %>
-		<li class="list-group-item"> 
-			<span class="badge"> <%= post.comments.length %></span>
-			<%= link_to post.title, post_path(post) %>
-		</li>
-	<% end %>
-</ul>
+	<div class="col-md-3">
+		<%= link_to "Ask a question", new_post_path, class: "btn btn-default" %>
+	</div>
+
+</div>
+</body>

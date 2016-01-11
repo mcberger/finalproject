@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Finalproject</title>
+	<title><%= @title %></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
 	<%= csrf_meta_tags %>
 </head>
 <body>
@@ -11,33 +16,51 @@
 	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		<div class="container-fluid">
 			<ul class="nav nav-pills">
-				<li role="presentation" class="active"><a href="/">Home</a></li>
-				<li role="presentation"><a href="/users">Users</a></li>
-				<li role="presentation"><a href="/events">Events</a></li>
-				<li role="presentation"><a href="/posts">Q&A</a></li>
-					<% if current_user %>
-					<li role="presentation" class="navbar-text navbar-right">Signed in as <%= current_user.fname %> <%= current_user.lname %></li>
-					<li role="presentation" class="navbar-right"><%= link_to 'logout', destroy_user_session_path, method: 'delete' %></li>
+				<a class="navbar-brand" href="/">
+			        <img class="logo" alt="Brand" src="/assets/brand.jpg">
+			     </a>
+			     <li role="presentation"><a href="/about" class="nav-links">About</a></li>
+				
+				<% if current_user %>
+				<li role="presentation"><a href="/users" class="nav-links">Users</a></li>
+				<li role="presentation"><a href="/events" class="nav-links">Events</a></li>
+				<li role="presentation"><a href="/posts" class="nav-links">Q&amp;A</a></li>
+				<!-- FIX THIS DROPDOWN -->
+				<li role="presentation" class="dropdown" >
+    				<a class="dropdown-toggle nav-links" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+     					Calendar <span class="caret"></span>
+    				</a>
+    				<ul class="dropdown-menu">
+    					<li><a href="/availabilities/new">New Availability</a></li>
+    					<li><a href="/availabilities">All Availability</a></li>
+    					<li role="separator" class="divider"></li>
+    					<li><a href="/">Schedules</a></li>
+    				</ul>
+    			</li>
+
+				<li role="presentation" class="navbar-text navbar-right">Signed in as <%= current_user.fname %> <%= current_user.lname %></li>
+				<li role="presentation" class="navbar-right"><%= link_to 'logout', destroy_user_session_path, method: 'delete', class: "nav-links" %></li>
 					<% else %>
-					<li role="presentation"><%= link_to 'login', new_user_session_path %></li>
+				<li role="presentation" class="navbar-right"><%= link_to 'login', new_user_session_path, class: "nav-links" %></li>
 					<% end %>
 			</ul>
 		</div>
 	</nav>
 
-
-	<% if flash[:notice] %>
-	<div class="alert alert-success"> 
-		<%= flash[:notice]%> 
-	</div>
-	<% elsif flash[:alert]  %>
-	<div class="alert alert-danger"> 
-		<%= flash[:alert] if flash[:alert]%>
-	</div>
-	<% else %>
-	<% end %>
-	
 	<div id="yield-container">
+	<div id="flash-wrapper">
+		<% if flash[:notice] %>
+		<div class="alert alert-success" role="alert"> 
+			<%= flash[:notice]%> 
+		</div>
+		<% elsif flash[:alert]  %>
+		<div class="alert alert-danger" role="alert"> 
+			<%= flash[:alert] if flash[:alert]%>
+		</div>
+		<% else %>
+		<% end %>
+	</div>
+	
 		<%= yield %>
 	</div>
 

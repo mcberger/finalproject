@@ -1,7 +1,7 @@
 <h1> New Event </h1>
 Fill in the details for the event you would like to create.
 
-<%= form_for @event do |f| %> 
+<%= simple_form_for @event do |f| %> 
 <div class="field">
 	<%= f.label :name %><br />
 	<%= f.text_field :name, autofocus: true %>

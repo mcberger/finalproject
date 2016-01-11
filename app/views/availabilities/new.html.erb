@@ -1,0 +1,23 @@
+<%= simple_form_for @availability do |f| %>
+  <%= f.input :date %>
+  <%= f.input :day %>
+  <%= f.input :night  %>
+  <%= f.button :submit %>
+<% end %>
+
+
+<%= month_calendar events: @events do |date, events| %>
+  <%= date.day %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= link_to event.name, event_path(event.id) %>
+    </div>
+  <% end %>
+
+<% end %>
+
+
+
+
+

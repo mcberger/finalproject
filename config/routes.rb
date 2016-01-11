@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users, controllers: {
         sessions: 'users/sessions',
         registrations: 'users/registrations'
@@ -14,8 +14,10 @@ Rails.application.routes.draw do
   end
 
   resources :events
+  resources :availabilities
 
   get '/' => 'home#index', as: :home
+  get '/about' => 'home#about'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

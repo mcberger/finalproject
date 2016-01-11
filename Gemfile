@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem "simple_calendar", "~> 2.0"
-gem 'fancybox-rails'
+gem 'simple_form'
 gem 'animate.css-rails', '~> 3.2'
 
 

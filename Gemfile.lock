@@ -61,8 +61,6 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.6.0)
-    fancybox-rails (0.3.1)
-      railties (>= 3.1.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -129,6 +127,9 @@ GEM
       rdoc (~> 4.0)
     simple_calendar (2.0.3)
       rails (>= 3.0)
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     spring (1.6.1)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -164,13 +165,13 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
-  fancybox-rails
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.5)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_calendar (~> 2.0)
+  simple_form
   spring
   sqlite3
   turbolinks
