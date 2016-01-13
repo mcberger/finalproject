@@ -3,7 +3,14 @@
 
   <% availabilities.each do |availability| %>
   	<div>
-  		<%= availability.user.fname %> (<%= availability.day ? 'Day' : 'Night' %>)
+  	<% if availability.day && availability.night %>
+  		<%= availability.user.fname %> (Day) <br>
+  		<%= availability.user.fname %> (Night)
+  	<% elsif availability.day %> 
+  		<%= availability.user.fname %> (Day)
+  	<% else %>
+  		<%= availability.user.fname %> (Night)
+  	<% end %>
   	</div>
   <% end %>
 

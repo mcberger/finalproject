@@ -1,6 +1,9 @@
 class HomeController < ApplicationController
   def index
-  	@events = Event.all
+  	if current_user
+  		@events = Event.joins(:user).where('users.establishment = ?', current_user.establishment)
+  	else
+  	end
   	@title = "Rooster"
   end
 

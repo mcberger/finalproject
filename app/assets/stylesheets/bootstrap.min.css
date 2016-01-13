@@ -68,7 +68,7 @@ a.nav-links:hover {
 	background-color: #1a1a1a;
 }
 
-/* Q&A related styling */
+/* Q&A and events related styling */
 
 .post-body {
 	width: 431px;
@@ -94,6 +94,19 @@ a.nav-links:hover {
 .time-stamp {
 	text-align: right;
 }
+
+.events-wrapper {
+	border-radius: 20px;
+	background-color: white;
+	margin: 0px 5px;
+	padding: 10px;
+}
+
+/* admin adding user styling*/
+.double-alert {
+	margin-top: 20px;
+}
+
 
 /* calendar styling */
 .calendar-header {

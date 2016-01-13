@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @title = @post.title
   end
 
   def new
@@ -26,15 +27,16 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @title = 'Edit: ' + @post.title
   end
 
   def update
     post = Post.find(params[:id])
     if post.update_attributes post_params
-      flash[:notice] = "Your post was updated successfully."
+      flash[:notice] = "Your question was updated successfully."
       redirect_to post_path post
     else
-      flash[:alert] = "There was a problem updating your post."
+      flash[:alert] = "There was a problem updating your question."
       redirect_to(:back)
     end
   end
@@ -42,10 +44,10 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
-      flash[:notice] = "The post was deleted successfully."
+      flash[:notice] = "The question was deleted successfully."
       redirect_to posts_path
     else
-      flash[:alert] = "There was a problem deleting the post."
+      flash[:alert] = "There was a problem deleting the question."
       redirect_to post_path @post
     end
   end

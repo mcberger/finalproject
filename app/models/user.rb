@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :calendar
   has_many :posts
   has_many :comments
   has_many :availabilities
+  has_many :events
 
 end

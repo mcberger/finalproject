@@ -1,16 +1,13 @@
-
 <% if @user.errors.full_messages.any? %>
-<div class="alert alert-warning">
-  <ul>
+<div class="alert alert-warning double-alert">
     <% @user.errors.full_messages.each do |error_message|%>
-      <li> <%= error_message %> </li> <br>
+		<%= error_message %> <br>
     <% end %>
-  </ul>
   </div>
 <% end %>
 
-
-Fill in the details for the user you would like to create.
+<h1> New User </h1>
+Fill in the details for the user you would like to create. <br><br>
 
 <%= form_for @user, url: create_new_users_path do |f| %> 
 <div class="field">
@@ -30,10 +27,10 @@ Fill in the details for the user you would like to create.
 
 <div class="field">
 	<%= f.label :email %><br />
-	<%= f.email_field :email %>
+	<%= f.email_field :email %><br><br>
 </div>
 
 <div class="actions">
-	<%= f.submit "Sign up" %>
+	<%= f.submit "Sign up", class: 'btn btn-default' %>
 </div>
 <% end %>

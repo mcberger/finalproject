@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
     @post = Post.find_by_id(params[:post_id])
+    @title = @post.title
   end
 
   def create

@@ -3,7 +3,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_account_update_params, only: [:update]
 
   def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update).push(:password_confirmation, :current_password, :email, :fname, :lname, :function)
+    # devise_parameter_sanitizer.for(:account_update).push(:password_confirmation, :current_password, :email, :fname, :lname, :function)
+    devise_parameter_sanitizer.for(:account_update).push(:fname, :lname, :function, :establishment)
   end
   # GET /resource/sign_up
   # def new

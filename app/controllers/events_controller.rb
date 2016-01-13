@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    events = Event.all
+    events = Event.joins(:user).where('users.establishment = ?', current_user.establishment)
     @pending_events = []
     @past_events = []
     events.each do |event|
@@ -10,6 +10,7 @@ class EventsController < ApplicationController
         @past_events << event
       end
     end
+    @title = 'Events'
   end
 
   def show
@@ -22,6 +23,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.user = current_user
 
     if @event.save
       flash[:notice] = "Your event was created successfully."

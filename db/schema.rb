@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160107163320) do
+ActiveRecord::Schema.define(version: 20160112211120) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "user_id"
@@ -20,13 +20,6 @@ ActiveRecord::Schema.define(version: 20160107163320) do
     t.boolean  "night"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "availability_users", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "availability_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -42,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160107163320) do
     t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "posts", force: :cascade do |t|
