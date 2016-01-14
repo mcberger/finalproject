@@ -1,9 +1,12 @@
 class SchedulesController < ApplicationController
   def index
+    @schedules = Schedule.joins(:user).where('users.establishment = ?', current_user.establishment).order(:week)
+    @title = 'Schedules'
   end
 
   def show
     @schedule = Schedule.find(params[:id])
+    @date = Date.commercial(@schedule.year, @schedule.week) #.strftime("%Y-%m-%d")
     @events = Event.joins(:user).where('users.establishment = ?', current_user.establishment)
     @title = 'Week ' + @schedule.week.to_s
   end
@@ -16,6 +19,7 @@ class SchedulesController < ApplicationController
 
   def create
     @schedule = Schedule.new(schedule_params)
+    @schedule.user = current_user
     if current_user.admin? && @schedule.save
         flash[:notice] = "Your schedule was created successfully."
         redirect_to @schedule
@@ -26,12 +30,31 @@ class SchedulesController < ApplicationController
   end
 
   def edit
+    @schedule = Schedule.find(params[:id])
+    @availabilities = Availability.joins(:user).where('users.establishment = ?', current_user.establishment)
+    @title = 'Edit: Week ' + @schedule.week.to_s
   end
 
   def update
+    schedule = Schedule.find(params[:id])
+    if schedule.update_attributes schedule_params
+      flash[:notice] = "Your schedule was updated successfully."
+      redirect_to schedule
+    else
+      flash[:alert] = "There was a problem updating your schedule."
+      redirect_to(:back)
+    end
   end
 
   def destroy
+    @schedule = Schedule.find(params[:id])
+      if @schedule.destroy
+        flash[:notice] = "The schedule was deleted successfully."
+        redirect_to schedules_path
+      else
+        flash[:alert] = "There was a problem deleting the schedule."
+        redirect_to @schedule
+      end
   end
 
   private
@@ -53,7 +76,7 @@ class SchedulesController < ApplicationController
       :d_six_thirteen, :d_six_fourteen, :d_six_fifteen, :d_six_sixteen, :d_six_seventeen, 
       :d_six_eighteen, :d_six_nineteen, :d_six_twenty, :d_seven_nine, :d_seven_ten, :d_seven_eleven, 
       :d_seven_twelve, :d_seven_thirteen, :d_seven_fourteen, :d_seven_fifteen, :d_seven_sixteen, 
-      :d_seven_seventeen, :d_seven_eighteen, :d_seven_nineteen, :d_seven_twenty
+      :d_seven_seventeen, :d_seven_eighteen, :d_seven_nineteen, :d_seven_twenty, :user_id
       )
   end
 end

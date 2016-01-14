@@ -1,2 +1,150 @@
-<h1>Schedules#edit</h1>
-<p>Find me in app/views/schedules/edit.html.erb</p>
+<h1 class="alt-title"> Edit Schedule </h1>
+
+<%= week_calendar events: @availabilities do |date, availabilities| %>
+  <%= date.day %>
+
+  <% availabilities.each do |availability| %>
+    <div>
+    <% if availability.day && availability.night %>
+      <%= availability.user.fname %> (Day) <br>
+      <%= availability.user.fname %> (Night)
+    <% elsif availability.day %> 
+      <%= availability.user.fname %> (Day)
+    <% else %>
+      <%= availability.user.fname %> (Night)
+    <% end %>
+    </div>
+  <% end %>
+
+<% end %>
+
+<%= simple_form_for @schedule, method: :put, :class=> '.form-inline' do |f| %>
+<%= f.input :year %>
+<%= f.input :week %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th> <%= f.input :day_one, label: 'Monday' %></th>
+        <th> <%= f.input :day_two, label: 'Tuesday' %></th>
+        <th> <%= f.input :day_three, label: 'Wednesday' %></th>
+        <th> <%= f.input :day_four, label: 'Thursday' %></th>
+        <th> <%= f.input :day_five, label: 'Friday' %></th>
+        <th> <%= f.input :day_six, label: 'Saturday' %></th>
+        <th> <%= f.input :day_seven, label: 'Sunday' %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= f.input :d_one_nine, placeholder: '9', label: false %></td>
+        <td><%= f.input :d_two_nine, placeholder: '9', label: false %></td>
+        <td><%= f.input :d_three_nine, placeholder: '9', label: false %></td>
+        <td><%= f.input :d_four_nine, placeholder: '9', label: false %></td>
+        <td><%= f.input :d_five_nine, placeholder: '9', label: false %></td>
+        <td><%= f.input :d_six_nine, placeholder: '9', label: false %></td>
+        <td><%= f.input :d_seven_nine, placeholder: '9', label: false %></td>
+      </tr>
+      <tr>
+        <td><%= f.input :d_one_ten, placeholder: '10', label: false %></td>
+        <td><%= f.input :d_two_ten, placeholder: '10', label: false %></td>
+        <td><%= f.input :d_three_ten, placeholder: '10', label: false %></td>
+        <td><%= f.input :d_four_ten, placeholder: '10', label: false %></td>
+        <td><%= f.input :d_five_ten, placeholder: '10', label: false %></td>
+        <td><%= f.input :d_six_ten, placeholder: '10', label: false %></td>
+        <td><%= f.input :d_seven_ten, placeholder: '10', label: false %></td>
+      </tr>
+      <tr>
+        <td><%= f.input :d_one_eleven, placeholder: '11', label: false %></td>
+        <td><%= f.input :d_two_eleven, placeholder: '11', label: false %></td>
+        <td><%= f.input :d_three_eleven, placeholder: '11', label: false %></td>
+        <td><%= f.input :d_four_eleven, placeholder: '11', label: false %></td>
+        <td><%= f.input :d_five_eleven, placeholder: '11', label: false %></td>
+        <td><%= f.input :d_six_eleven, placeholder: '11', label: false %></td>
+        <td><%= f.input :d_seven_eleven, placeholder: '11', label: false %></td>
+      </tr>
+      <tr>
+        <td><%= f.input :d_one_twelve, placeholder: '12', label: false %></td>
+        <td><%= f.input :d_two_twelve, placeholder: '12', label: false %></td>
+        <td><%= f.input :d_three_twelve, placeholder: '12', label: false %></td>
+        <td><%= f.input :d_four_twelve, placeholder: '12', label: false %></td>
+        <td><%= f.input :d_five_twelve, placeholder: '12', label: false %></td>
+        <td><%= f.input :d_six_twelve, placeholder: '12', label: false %></td>
+        <td><%= f.input :d_seven_twelve, placeholder: '12', label: false %></td>
+      </tr>
+      <tr>
+        <td><%= f.input :d_one_thirteen, placeholder: '13', label: false %></td>
+        <td><%= f.input :d_two_thirteen, placeholder: '13', label: false %></td>
+        <td><%= f.input :d_three_thirteen, placeholder: '13', label: false %></td>
+        <td><%= f.input :d_four_thirteen, placeholder: '13', label: false %></td>
+        <td><%= f.input :d_five_thirteen, placeholder: '13', label: false %></td>
+        <td><%= f.input :d_six_thirteen, placeholder: '13', label: false %></td>
+        <td><%= f.input :d_seven_thirteen, placeholder: '13', label: false %></td>
+      </tr>
+      <tr>
+        <td><%= f.input :d_one_fourteen, placeholder: '14', label: false %></td>
+        <td><%= f.input :d_two_fourteen, placeholder: '14', label: false %></td>
+        <td><%= f.input :d_three_fourteen, placeholder: '14', label: false %></td>
+        <td><%= f.input :d_four_fourteen, placeholder: '14', label: false %></td>
+        <td><%= f.input :d_five_fourteen, placeholder: '14', label: false %></td>
+        <td><%= f.input :d_six_fourteen, placeholder: '14', label: false %></td>
+        <td><%= f.input :d_seven_fourteen, placeholder: '14', label: false %></td>
+      </tr>
+      <tr>
+        <td><%= f.input :d_one_fifteen, placeholder: '15', label: false %></td>
+        <td><%= f.input :d_two_fifteen, placeholder: '15', label: false %></td>
+        <td><%= f.input :d_three_fifteen, placeholder: '15', label: false %></td>
+        <td><%= f.input :d_four_fifteen, placeholder: '15', label: false %></td>
+        <td><%= f.input :d_five_fifteen, placeholder: '15', label: false %></td>
+        <td><%= f.input :d_six_fifteen, placeholder: '15', label: false %></td>
+        <td><%= f.input :d_seven_fifteen, placeholder: '15', label: false %></td>
+      </tr>
+      <tr>
+        <td><%= f.input :d_one_sixteen, placeholder: '16', label: false %></td>
+        <td><%= f.input :d_two_sixteen, placeholder: '16', label: false %></td>
+        <td><%= f.input :d_three_sixteen, placeholder: '16', label: false %></td>
+        <td><%= f.input :d_four_sixteen, placeholder: '16', label: false %></td>
+        <td><%= f.input :d_five_sixteen, placeholder: '16', label: false %></td>
+        <td><%= f.input :d_six_sixteen, placeholder: '16', label: false %></td>
+        <td><%= f.input :d_seven_sixteen, placeholder: '16', label: false %></td>
+      </tr>
+      <tr>
+        <td><%= f.input :d_one_seventeen, placeholder: '17', label: false %></td>
+        <td><%= f.input :d_two_seventeen, placeholder: '17', label: false %></td>
+        <td><%= f.input :d_three_seventeen, placeholder: '17', label: false %></td>
+        <td><%= f.input :d_four_seventeen, placeholder: '17', label: false %></td>
+        <td><%= f.input :d_five_seventeen, placeholder: '17', label: false %></td>
+        <td><%= f.input :d_six_seventeen, placeholder: '17', label: false %></td>
+        <td><%= f.input :d_seven_seventeen, placeholder: '17', label: false %></td>
+      </tr>
+      <tr>
+        <td><%= f.input :d_one_eighteen, placeholder: '18', label: false %></td>
+        <td><%= f.input :d_two_eighteen, placeholder: '18', label: false %></td>
+        <td><%= f.input :d_three_eighteen, placeholder: '18', label: false %></td>
+        <td><%= f.input :d_four_eighteen, placeholder: '18', label: false %></td>
+        <td><%= f.input :d_five_eighteen, placeholder: '18', label: false %></td>
+        <td><%= f.input :d_six_eighteen, placeholder: '18', label: false %></td>
+        <td><%= f.input :d_seven_eighteen, placeholder: '18', label: false %></td>
+      </tr>
+      <tr>
+        <td><%= f.input :d_one_nineteen, placeholder: '19', label: false %></td>
+        <td><%= f.input :d_two_nineteen, placeholder: '19', label: false %></td>
+        <td><%= f.input :d_three_nineteen, placeholder: '19', label: false %></td>
+        <td><%= f.input :d_four_nineteen, placeholder: '19', label: false %></td>
+        <td><%= f.input :d_five_nineteen, placeholder: '19', label: false %></td>
+        <td><%= f.input :d_six_nineteen, placeholder: '19', label: false %></td>
+        <td><%= f.input :d_seven_nineteen, placeholder: '19', label: false %></td>
+      </tr>
+      <tr>
+        <td><%= f.input :d_one_twenty, placeholder: '20', label: false %></td>
+        <td><%= f.input :d_two_twenty, placeholder: '20', label: false %></td>
+        <td><%= f.input :d_three_twenty, placeholder: '20', label: false %></td>
+        <td><%= f.input :d_four_twenty, placeholder: '20', label: false %></td>
+        <td><%= f.input :d_five_twenty, placeholder: '20', label: false %></td>
+        <td><%= f.input :d_six_twenty, placeholder: '20', label: false %></td>
+        <td><%= f.input :d_seven_twenty, placeholder: '20', label: false %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <%= f.button :submit %>
+
+  <% end %>

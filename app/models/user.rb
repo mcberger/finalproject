@@ -8,5 +8,6 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :availabilities
   has_many :events
+  has_many :schedules
 
 end

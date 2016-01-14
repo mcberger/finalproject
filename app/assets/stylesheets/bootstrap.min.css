@@ -91,6 +91,7 @@ a.nav-links:hover {
 .post-title, .alt-title {
 	font-weight: lighter;
 	font-size: 50px;
+	padding-bottom: 5px;
 }
 
 .posted-by {
@@ -103,11 +104,17 @@ a.nav-links:hover {
 	text-align: right;
 }
 
-.events-wrapper {
+.events-wrapper, .about-wrapper {
 	border-radius: 20px;
 	background-color: white;
 	margin: 0px 5px;
 	padding: 10px;
+}
+
+.about-wrapper {
+	font-size: 16px;
+	margin-top: 15px;
+	padding: 20px;
 }
 
 
