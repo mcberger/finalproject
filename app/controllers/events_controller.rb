@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
     events = Event.joins(:user).where('users.establishment = ?', current_user.establishment)
+    
     @pending_events = []
     @past_events = []
     events.each do |event|
@@ -15,10 +16,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @title = @event.name
   end
 
   def new
     @event = Event.new
+    @title = 'New event'
   end
 
   def create
@@ -36,6 +39,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @title = 'Edit: ' + @event.name
   end
 
   def update
@@ -62,6 +66,6 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :start_time)
+    params.require(:event).permit(:name, :start_time, :user_id)
   end
 end

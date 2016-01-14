@@ -1,6 +1,7 @@
 class AvailabilitiesController < ApplicationController
   def index
     @availabilities = Availability.joins(:user).where('users.establishment = ?', current_user.establishment)
+    @title = 'Availabilities'
   end
 
   def show
@@ -8,12 +9,16 @@ class AvailabilitiesController < ApplicationController
 
   def new
     @availability = Availability.new
+    @availabilities = Availability.joins(:user).where('users.establishment = ?', current_user.establishment)
+    #@availability = Array.new (7) {Availability.new}
     @events = Event.all
+    @title = 'New availability'
   end
 
   def create
+    @events = Event.joins(:user).where('users.establishment = ?', current_user.establishment)
     @availability = Availability.new(availability_params)
-    @events = Event.all
+    # @availability = params[:availability].values.collect { |availability| Availability.new(availability)}
     @availability.user = current_user
     if current_user != nil && @availability.save
       flash[:notice] = "Your availability has been saved successfully."

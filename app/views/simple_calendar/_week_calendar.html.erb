@@ -1,12 +1,12 @@
 <div class="simple-calendar">
 <div class="row">
-    <div class="col-md-3 calendar-header">
-  <%= link_to "Previous", start_date: date_range.first - 1.day  %>
+    <div class="col-md-2 calendar-header">
+  <%= link_to "Previous", start_date: date_range.first - 1.day %>
   </div>
- <div class="col-md-6">
-  Week <%= start_date.strftime("%U").to_i %>
+ <div class="col-md-8 calendar-header">
+  <h3>Week <%= start_date.strftime("%U").to_i %></h3>
   </div>
-    <div class="col-md-3 calendar-header">
+    <div class="col-md-2 calendar-header">
   <%= link_to "Next", start_date: date_range.last + 1.day  %>
   </div>
 </div>
@@ -24,13 +24,13 @@
         <tr>
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% if defined?(Haml) && block_is_haml?(block) %>
+               <% if defined?(Haml) && block_is_haml?(block) %>
                 <% capture_haml do %>
-                  <% block.call day, sorted_events.fetch(day, []) %>
+                  <% block.call day, sorted_events.fetch(day, []) %> 
                 <% end %>
-              <% else %>
+              <% else %> 
                 <% block.call day, sorted_events.fetch(day, []) %>
-              <% end %>
+             <% end %> 
             <% end %>
           <% end %>
         </tr>

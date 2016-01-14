@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :schedules
   resources :events
   resources :availabilities
 

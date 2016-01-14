@@ -1,3 +1,34 @@
+<h1 class="alt-title"> New Availability </h1>
+
+<%= week_calendar events: @availabilities do |date, availabilities| %>
+  <%= date.day %>
+
+  <% availabilities.each do |availability| %>
+    <div>
+    <% if availability.day && availability.night %>
+      <%= availability.user.fname %> (Day) <br>
+      <%= availability.user.fname %> (Night)
+    <% elsif availability.day %> 
+      <%= availability.user.fname %> (Day)
+    <% else %>
+      <%= availability.user.fname %> (Night)
+    <% end %>
+    </div>
+  <% end %>
+
+<% end %>
+
+<%= month_calendar events: @events do |date, events| %>
+<%= date.day %>
+
+<% events.each do |event| %>
+<div>
+  <%= link_to event.name, event_path(event.id) %>
+</div>
+<% end %>
+
+<% end %>
+
 <%= simple_form_for @availability do |f| %>
   <%= f.input :date %>
   <%= f.input :day %>
@@ -5,19 +36,45 @@
   <%= f.button :submit %>
 <% end %>
 
+<!-- The week availability form/table, will improve on this in the future
 
-<%= month_calendar events: @events do |date, events| %>
-  <%= date.day %>
+Date.today.wday
+1.week.since(Date.today)
+Date.today.cweek
 
-  <% events.each do |event| %>
-    <div>
-      <%= link_to event.name, event_path(event.id) %>
-    </div>
-  <% end %>
-
-<% end %>
-
-
-
-
-
+<h3> Week <%= Date.today.cweek %> </h3>
+<%= simple_form_for @availability, :class=> '.form-inline' do |f| %>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th colspan="2"> <%= f.input :date %></th>
+        <th colspan="2"> <%= (Date.today + 1).strftime("%A %d") %></th>
+        <th colspan="2"> <%= (Date.today + 2).strftime("%A %d") %></th>
+        <th colspan="2"> <%= (Date.today + 3).strftime("%A %d") %></th>
+        <th colspan="2"> <%= (Date.today + 4).strftime("%A %d") %></th>
+        <th colspan="2"> <%= (Date.today + 5).strftime("%A %d") %></th>
+        <th colspan="2"> <%= (Date.today + 6).strftime("%A %d") %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= f.input :day %></td>
+        <td><%= f.input :night %></td>
+        <td><%= f.input :day %></td>
+        <td><%= f.input :night %></td>
+        <td><%= f.input :day %></td>
+        <td><%= f.input :night %></td>
+        <td><%= f.input :day %></td>
+        <td><%= f.input :night %></td>
+        <td><%= f.input :day %></td>
+        <td><%= f.input :night %></td>
+        <td><%= f.input :day %></td>
+        <td><%= f.input :night %></td>
+        <td><%= f.input :day %></td>
+        <td><%= f.input :night %></td>
+        <td><%= f.button :submit %></td>
+      </tr>
+    </tbody>
+  </table>
+<%end %> -->

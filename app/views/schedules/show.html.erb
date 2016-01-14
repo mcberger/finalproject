@@ -1,0 +1,135 @@
+<h1 class="alt-title"> Schedule: Week <%= @schedule.week %> </h1>
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th> Monday <%= @schedule.day_one %></th>
+    <th> Tuesday <%= @schedule.day_two %></th>
+    <th> Wednesday <%= @schedule.day_three %></th>
+    <th> Thursday <%= @schedule.day_four  %></th>
+    <th> Friday <%= @schedule.day_five %></th>
+    <th> Saturday <%= @schedule.day_six  %></th>
+    <th> Sunday <%= @schedule.day_seven %></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><%= @schedule.d_one_nine? ? "9: #{@schedule.d_one_nine}" : "" %></td>
+    <td><%= @schedule.d_two_nine? ? "9: #{@schedule.d_two_nine}" : "" %></td>
+    <td><%= @schedule.d_three_nine? ? "9: #{@schedule.d_three_nine}" : "" %></td>
+    <td><%= @schedule.d_four_nine? ? "9: #{@schedule.d_four_nine}" : "" %></td>
+    <td><%= @schedule.d_five_nine? ? "9: #{@schedule.d_five_nine}" : "" %></td>
+    <td><%= @schedule.d_six_nine? ? "9: #{@schedule.d_six_nine}" : "" %></td>
+    <td><%= @schedule.d_seven_nine? ? "9: #{@schedule.d_seven_nine}" : "" %></td>
+  </tr>
+  <tr>
+    <td><%= @schedule.d_one_ten? ? "10: #{@schedule.d_one_ten}" : "" %></td>
+    <td><%= @schedule.d_two_ten? ? "10: #{@schedule.d_two_ten}" : "" %></td>
+    <td><%= @schedule.d_three_ten? ? "10: #{@schedule.d_three_ten}" : "" %></td>
+    <td><%= @schedule.d_four_ten? ? "10: #{@schedule.d_four_ten}" : "" %></td>
+    <td><%= @schedule.d_five_ten? ? "10: #{@schedule.d_five_ten}" : "" %></td>
+    <td><%= @schedule.d_six_ten? ? "10: #{@schedule.d_six_ten}" : "" %></td>
+    <td><%= @schedule.d_seven_ten? ? "10: #{@schedule.d_seven_ten}" : "" %></td>
+  </tr>
+  <tr>
+    <td><%= @schedule.d_one_eleven? ? "11: #{@schedule.d_one_eleven}" : "" %></td>
+    <td><%= @schedule.d_two_eleven? ? "11: #{@schedule.d_two_eleven}" : "" %></td>
+    <td><%= @schedule.d_three_eleven? ? "11: #{@schedule.d_three_eleven}" : "" %></td>
+    <td><%= @schedule.d_four_eleven? ? "11: #{@schedule.d_four_eleven}" : "" %></td>
+    <td><%= @schedule.d_five_eleven? ? "11: #{@schedule.d_five_eleven}" : "" %></td>
+    <td><%= @schedule.d_six_eleven? ? "11: #{@schedule.d_six_eleven}" : "" %></td>
+    <td><%= @schedule.d_seven_eleven? ? "11: #{@schedule.d_seven_eleven}" : "" %></td>
+  </tr>
+  <tr>
+    <td><%= @schedule.d_one_twelve? ? "12: #{@schedule.d_one_twelve}" : "" %></td>
+    <td><%= @schedule.d_two_twelve? ? "12: #{@schedule.d_two_twelve}" : "" %></td>
+    <td><%= @schedule.d_three_twelve? ? "12: #{@schedule.d_three_twelve}" : "" %></td>
+    <td><%= @schedule.d_four_twelve? ? "12: #{@schedule.d_four_twelve}" : "" %></td>
+    <td><%= @schedule.d_five_twelve? ? "12: #{@schedule.d_five_twelve}" : "" %></td>
+    <td><%= @schedule.d_six_twelve? ? "12: #{@schedule.d_six_twelve}" : "" %></td>
+    <td><%= @schedule.d_seven_twelve? ? "12: #{@schedule.d_seven_twelve}" : "" %></td>
+  </tr>
+  <tr>
+    <td><%= @schedule.d_one_thirteen? ? "13: #{@schedule.d_one_thirteen}" : "" %></td>
+    <td><%= @schedule.d_two_thirteen? ? "13: #{@schedule.d_two_thirteen}" : "" %></td>
+    <td><%= @schedule.d_three_thirteen? ? "13: #{@schedule.d_three_thirteen}" : "" %></td>
+    <td><%= @schedule.d_four_thirteen? ? "13: #{@schedule.d_four_thirteen}" : "" %></td>
+    <td><%= @schedule.d_five_thirteen? ? "13: #{@schedule.d_five_thirteen}" : "" %></td>
+    <td><%= @schedule.d_six_thirteen? ? "13: #{@schedule.d_six_thirteen}" : "" %></td>
+    <td><%= @schedule.d_seven_thirteen? ? "13: #{@schedule.d_seven_thirteen}" : "" %></td>
+  </tr>
+  <tr>
+    <td><%= @schedule.d_one_fourteen? ? "14: #{@schedule.d_one_fourteen}" : "" %></td>
+    <td><%= @schedule.d_two_fourteen? ? "14: #{@schedule.d_two_fourteen}" : "" %></td>
+    <td><%= @schedule.d_three_fourteen? ? "14: #{@schedule.d_three_fourteen}" : "" %></td>
+    <td><%= @schedule.d_four_fourteen? ? "14: #{@schedule.d_four_fourteen}" : "" %></td>
+    <td><%= @schedule.d_five_fourteen? ? "14: #{@schedule.d_five_fourteen}" : "" %></td>
+    <td><%= @schedule.d_six_fourteen? ? "14: #{@schedule.d_six_fourteen}" : "" %></td>
+    <td><%= @schedule.d_seven_fourteen? ? "14: #{@schedule.d_seven_fourteen}" : "" %></td>
+  </tr>
+  <tr>
+    <td><%= @schedule.d_one_fifteen? ? "15: #{@schedule.d_one_fifteen}" : "" %></td>
+    <td><%= @schedule.d_two_fifteen? ? "15: #{@schedule.d_two_fifteen}" : "" %></td>
+    <td><%= @schedule.d_three_fifteen? ? "15: #{@schedule.d_three_fifteen}" : "" %></td>
+    <td><%= @schedule.d_four_fifteen? ? "15: #{@schedule.d_four_fifteen}" : "" %></td>
+    <td><%= @schedule.d_five_fifteen? ? "15: #{@schedule.d_five_fifteen}" : "" %></td>
+    <td><%= @schedule.d_six_fifteen? ? "15: #{@schedule.d_six_fifteen}" : "" %></td>
+    <td><%= @schedule.d_seven_fifteen? ? "15: #{@schedule.d_seven_fifteen}" : "" %></td>
+  </tr>
+  <tr>
+    <td><%= @schedule.d_one_sixteen? ? "16: #{@schedule.d_one_sixteen}" : "" %></td>
+    <td><%= @schedule.d_two_sixteen? ? "16: #{@schedule.d_two_sixteen}" : "" %></td>
+    <td><%= @schedule.d_three_sixteen? ? "16: #{@schedule.d_three_sixteen}" : "" %></td>
+    <td><%= @schedule.d_four_sixteen? ? "16: #{@schedule.d_four_sixteen}" : "" %></td>
+    <td><%= @schedule.d_five_sixteen? ? "16: #{@schedule.d_five_sixteen}" : "" %></td>
+    <td><%= @schedule.d_six_sixteen? ? "16: #{@schedule.d_six_sixteen}" : "" %></td>
+    <td><%= @schedule.d_seven_sixteen? ? "16: #{@schedule.d_seven_sixteen}" : "" %></td>
+  </tr>
+  <tr>
+    <td><%= @schedule.d_one_seventeen? ? "17: #{@schedule.d_one_seventeen}" : "" %></td>
+    <td><%= @schedule.d_two_seventeen? ? "17: #{@schedule.d_two_seventeen}" : "" %></td>
+    <td><%= @schedule.d_three_seventeen? ? "17: #{@schedule.d_three_seventeen}" : "" %></td>
+    <td><%= @schedule.d_four_seventeen? ? "17: #{@schedule.d_four_seventeen}" : "" %></td>
+    <td><%= @schedule.d_five_seventeen? ? "17: #{@schedule.d_five_seventeen}" : "" %></td>
+    <td><%= @schedule.d_six_seventeen? ? "17: #{@schedule.d_six_seventeen}" : "" %></td>
+    <td><%= @schedule.d_seven_seventeen? ? "17: #{@schedule.d_seven_seventeen}" : "" %></td>
+  </tr>
+  <tr>
+    <td><%= @schedule.d_one_eighteen? ? "18: #{@schedule.d_one_eighteen}" : "" %></td>
+    <td><%= @schedule.d_two_eighteen? ? "18: #{@schedule.d_two_eighteen}" : "" %></td>
+    <td><%= @schedule.d_three_eighteen? ? "18: #{@schedule.d_three_eighteen}" : "" %></td>
+    <td><%= @schedule.d_four_eighteen? ? "18: #{@schedule.d_four_eighteen}" : "" %></td>
+    <td><%= @schedule.d_five_eighteen? ? "18: #{@schedule.d_five_eighteen}" : "" %></td>
+    <td><%= @schedule.d_six_eighteen? ? "18: #{@schedule.d_six_eighteen}" : "" %></td>
+    <td><%= @schedule.d_seven_eighteen? ? "18: #{@schedule.d_seven_eighteen}" : "" %></td>
+  </tr>
+  <tr>
+    <td><%= @schedule.d_one_nineteen? ? "19: #{@schedule.d_one_nineteen}" : "" %></td>
+    <td><%= @schedule.d_two_nineteen? ? "19: #{@schedule.d_two_nineteen}" : "" %></td>
+    <td><%= @schedule.d_three_nineteen? ? "19: #{@schedule.d_three_nineteen}" : "" %></td>
+    <td><%= @schedule.d_four_nineteen? ? "19: #{@schedule.d_four_nineteen}" : "" %></td>
+    <td><%= @schedule.d_five_nineteen? ? "19: #{@schedule.d_five_nineteen}" : "" %></td>
+    <td><%= @schedule.d_six_nineteen? ? "19: #{@schedule.d_six_nineteen}" : "" %></td>
+    <td><%= @schedule.d_seven_nineteen? ? "19: #{@schedule.d_seven_nineteen}" : "" %></td>
+  </tr>
+  <tr>
+    <td><%= @schedule.d_one_twenty? ? "20: #{@schedule.d_one_twenty}" : "" %></td>
+    <td><%= @schedule.d_two_twenty? ? "20: #{@schedule.d_two_twenty}" : "" %></td>
+    <td><%= @schedule.d_three_twenty? ? "20: #{@schedule.d_three_twenty}" : "" %></td>
+    <td><%= @schedule.d_four_twenty? ? "20: #{@schedule.d_four_twenty}" : "" %></td>
+    <td><%= @schedule.d_five_twenty? ? "20: #{@schedule.d_five_twenty}" : "" %></td>
+    <td><%= @schedule.d_six_twenty? ? "20: #{@schedule.d_six_twenty}" : "" %></td>
+    <td><%= @schedule.d_seven_twenty? ? "20: #{@schedule.d_seven_twenty}" : "" %></td>
+  </tr>
+</tbody>
+</table>
+
+<%= week_calendar events: @events do |date, events| %>
+<%= date.day %>
+
+<% events.each do |event| %>
+<div>
+  <%= link_to event.name, event_path(event.id) %>
+</div>
+<% end %>
+
+<% end %>  

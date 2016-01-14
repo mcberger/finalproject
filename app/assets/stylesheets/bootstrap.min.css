@@ -54,6 +54,11 @@ a.nav-links:hover {
 	font-size: 75px;
 	padding-bottom: 20px;
 }
+
+.navbar-right {
+	padding-right: 7px;
+}
+
 /*login and signup styling*/
 .small-content-wrapper {
 	width: 300px;
@@ -81,6 +86,9 @@ a.nav-links:hover {
 
 .post-title {
 	color: white;
+}
+
+.post-title, .alt-title {
 	font-weight: lighter;
 	font-size: 50px;
 }
@@ -101,6 +109,7 @@ a.nav-links:hover {
 	margin: 0px 5px;
 	padding: 10px;
 }
+
 
 /* admin adding user styling*/
 .double-alert {

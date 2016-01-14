@@ -31,6 +31,7 @@ class UsersController < ApplicationController
 
   def add_new_users
     @user = User.new
+    @title = 'New user'
   end
 
   def create_new_users

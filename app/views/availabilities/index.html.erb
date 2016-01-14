@@ -1,17 +1,27 @@
-<%= week_calendar events: @availabilities do |date, availabilities| %>
-  <%= date.day %>
+<h1 class="alt-title"> All Availabilities </h1>
+<div class="row">
+  <div class="col-md-11">
+    <%= week_calendar events: @availabilities do |date, availabilities| %>
+      <%= date.day %>
 
-  <% availabilities.each do |availability| %>
-  	<div>
-  	<% if availability.day && availability.night %>
-  		<%= availability.user.fname %> (Day) <br>
-  		<%= availability.user.fname %> (Night)
-  	<% elsif availability.day %> 
-  		<%= availability.user.fname %> (Day)
-  	<% else %>
-  		<%= availability.user.fname %> (Night)
-  	<% end %>
-  	</div>
-  <% end %>
+      <% availabilities.each do |availability| %>
+      	<div>
+      	<% if availability.day && availability.night %>
+      		<%= availability.user.fname %> (Day) <br>
+      		<%= availability.user.fname %> (Night)
+      	<% elsif availability.day %> 
+      		<%= availability.user.fname %> (Day)
+      	<% else %>
+      		<%= availability.user.fname %> (Night)
+      	<% end %>
+      	</div>
+      <% end %>
 
-<% end %>
+    <% end %>
+  </div>
+
+  <div class="col-md-1">
+    <%= link_to "Add a new availability", new_availability_path, class: "btn btn-default" %>
+  </div>
+
+</div>
