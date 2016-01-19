@@ -1,2 +1,37 @@
-<h1>Availabilities#edit</h1>
-<p>Find me in app/views/availabilities/edit.html.erb</p>
+<h1 class="alt-title"> Edit Availability </h1>
+
+<%= week_calendar events: @availabilities do |date, availabilities| %>
+  <%= date.day %>
+
+  <% availabilities.each do |availability| %>
+    <div>
+    <% if availability.day && availability.night %>
+      <%= availability.user.fname %> (Day) <br>
+      <%= availability.user.fname %> (Night)
+    <% elsif availability.day %> 
+      <%= availability.user.fname %> (Day)
+    <% else %>
+      <%= availability.user.fname %> (Night)
+    <% end %>
+    </div>
+  <% end %>
+
+<% end %>
+
+<%= month_calendar events: @events do |date, events| %>
+<%= date.day %>
+
+<% events.each do |event| %>
+<div>
+  <%= link_to event.name, event_path(event.id) %>
+</div>
+<% end %>
+
+<% end %>
+
+<%= simple_form_for @availability, method: :put do |f| %>
+  <%= f.input :date %>
+  <%= f.input :day %>
+  <%= f.input :night  %>
+  <%= f.button :submit %>
+<% end %>

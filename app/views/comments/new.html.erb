@@ -3,7 +3,7 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title"><%= @post.title %> </h3>
-		<div class="time-stamp"><%= @post.created_at.strftime("%m/%d/%Y at %H:%M") %></div>
+		<div class="time-stamp"><%= @post.created_at.strftime("%d/%m/%Y at %H:%M") %></div>
 	</div>
 	<div class="panel-body">
 		<%= @post.body %>

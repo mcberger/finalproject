@@ -2,26 +2,39 @@
 <div class="row">
   <div class="col-md-11">
     <%= week_calendar events: @availabilities do |date, availabilities| %>
-      <%= date.day %>
+    <%= date.day %>
 
-      <% availabilities.each do |availability| %>
-      	<div>
-      	<% if availability.day && availability.night %>
-      		<%= availability.user.fname %> (Day) <br>
-      		<%= availability.user.fname %> (Night)
-      	<% elsif availability.day %> 
-      		<%= availability.user.fname %> (Day)
-      	<% else %>
-      		<%= availability.user.fname %> (Night)
-      	<% end %>
-      	</div>
-      <% end %>
+    <% availabilities.each do |availability| %>
+    <div>
+     <% if availability.day && availability.night %>
+       <% if availability.user == current_user || current_user.admin? %>
+       <%= link_to availability.user.fname + " (Day)", availability_path(availability) %><br>
+       <%= link_to availability.user.fname + " (Night)", availability_path(availability) %>
+       <% else %>
+       <%= availability.user.fname %> (Day) <br>
+       <%= availability.user.fname %> (Night)
+       <% end %>
+     <% elsif availability.day %> 
+       <% if availability.user == current_user || current_user.admin? %>
+       <%= link_to availability.user.fname + " (Day)", availability_path(availability) %>
+       <% else %>
+       <%= availability.user.fname %> (Day)
+       <% end %>
+     <% else %>
+       <% if availability.user == current_user || current_user.admin? %>
+       <%= link_to availability.user.fname + " (Night)", availability_path(availability) %>
+       <% else %>
+       <%= availability.user.fname %> (Night)
+       <% end %>
+     <% end %>
+   </div>
+   <% end %>
 
-    <% end %>
-  </div>
+   <% end %>
+ </div>
 
-  <div class="col-md-1">
-    <%= link_to "Add a new availability", new_availability_path, class: "btn btn-default" %>
-  </div>
+ <div class="col-md-1">
+  <%= link_to "Add a new availability", new_availability_path, class: "btn btn-default" %>
+</div>
 
 </div>

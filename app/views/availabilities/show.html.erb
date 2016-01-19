@@ -1,2 +1,20 @@
-<h1>Availabilities#show</h1>
-<p>Find me in app/views/availabilities/show.html.erb</p>
+<h1> <%= @availability.date.strftime("%d/%m/%Y") %></h1>
+Your availability: <br>
+<ul>
+	<% if @availability.day && @availability.night %>
+		<li> Day </li>
+		<li> Night </li>
+	<% elsif @availability.day %> 
+		<li> Day </li>
+	<% else %>
+		<li> Night </li>
+	<% end %>
+</ul>
+
+
+<br><br>
+<% if current_user.admin? || current_user == @availability.user %>
+	<%= link_to 'Edit availability', edit_availability_path, class: "btn btn-default" %>
+	<%= link_to 'Delete availability', availability_path(@availability), method: :delete, class: "btn btn-default" %>
+<% else %>
+<% end %>

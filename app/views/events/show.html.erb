@@ -1,5 +1,5 @@
 <h1> <%= @event.name %></h1>
-Taking place on the: <%= @event.start_time.strftime("%m/%d/%Y at %H:%M") %>
+Taking place on the: <%= @event.start_time.strftime("%d/%m/%Y at %H:%M") %>
 
 <br><br>
 <% if current_user.admin? %>
