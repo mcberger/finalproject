@@ -43,13 +43,13 @@ class EventsController < ApplicationController
   end
 
   def update
-    event = Event.find(params[:id])
-    if event.update_attributes event_params
+    @event = Event.find(params[:id])
+    if @event.update_attributes event_params
       flash[:notice] = "Your event was updated successfully."
-      redirect_to event
+      redirect_to @event
     else
       flash[:alert] = "There was a problem updating your event."
-      redirect_to(:back)
+      render :edit
     end
   end
 

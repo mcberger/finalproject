@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.joins(:user).where('users.establishment = ?', current_user.establishment)
     @title = "Q&A"
   end
 
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
       redirect_to post_path post
     else
       flash[:alert] = "There was a problem updating your question."
-      redirect_to(:back)
+      render :edit
     end
   end
 
